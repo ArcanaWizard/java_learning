@@ -11,7 +11,6 @@ public class GroupCreationTests {
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
     login("admin", "secret");
   }
@@ -35,12 +34,11 @@ public class GroupCreationTests {
   }
 
   private void returnToGroupPage() {
+    wd.findElement(By.linkText("groups")).click();
     wd.findElement(By.linkText("Logout")).click();
   }
 
-  private void submitGroupCreation() {
-    wd.findElement(By.linkText("groups")).click();
-  }
+  private void submitGroupCreation() { wd.findElement(By.name("submit")).click(); }
 
   private void fillGroupForm(GroupData groupData) {
     wd.findElement(By.name("group_name")).click();
@@ -52,7 +50,6 @@ public class GroupCreationTests {
     wd.findElement(By.name("group_footer")).click();
     wd.findElement(By.name("group_footer")).clear();
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
-    wd.findElement(By.name("submit")).click();
   }
 
   private void initGroupCreation() {
