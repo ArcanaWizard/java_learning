@@ -1,13 +1,8 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.stqa.pft.addressbook.model.ContactData;
-
-import java.time.Instant;
 
 public class ContactHelper extends HelperBase {
 
@@ -45,5 +40,13 @@ public class ContactHelper extends HelperBase {
 
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
+  }
+
+  public void editContact() {
+    click (By.cssSelector("img[alt=\"Edit\"]"));
+  }
+
+  public void submitModification() {
+    click(By.xpath("//input[@value='Update']"));
   }
 }
