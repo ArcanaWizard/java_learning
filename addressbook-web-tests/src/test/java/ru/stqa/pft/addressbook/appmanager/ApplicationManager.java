@@ -52,6 +52,10 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
+  public ContactHelper getContactHelper() {
+    return contactHelper;
+  }
+
   private boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
@@ -59,9 +63,5 @@ public class ApplicationManager {
     } catch (NoAlertPresentException e) {
       return false;
     }
-  }
-
-  public ContactHelper getContactHelper() {
-    return contactHelper;
   }
 }
